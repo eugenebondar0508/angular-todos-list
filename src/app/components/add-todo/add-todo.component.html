@@ -1,0 +1,11 @@
+<form [formGroup]="form" (ngSubmit)="submit()"> 
+    <span (click)="modalService.close()">X</span>
+    <h2 class="title">Add a ToDo</h2>
+    <label for="title"></label>
+    <textarea placeholder="Start typing ..." rows="5" cols="33" formControlName="title"></textarea>
+    <p class="error" *ngIf="form.get('title').touched && form.get('title').invalid">Please fill title feald</p>
+    <button class="btn" type="submit" [disabled]="form.invalid" [ngClass]="{disabled: form.invalid}">
+        <p></p><p>Save ToDo</p> <img src="../../../assets/img/Group.svg" alt="">
+    </button>
+</form>
+

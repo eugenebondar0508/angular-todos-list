@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="todos">
+        <div class="todos__header">
+            <h2 class="todos__header-title">
+                All ToDo’s
+            </h2>
+            <button class="todos__header-btn" 
+                (click)="modalService.openAddModal()">
+                Add a ToDo <img src="../../../assets/img/plus.svg" alt=""
+                >
+            </button>
+        </div>
+        <div 
+            *ngIf="todosService.todos; else loading"
+        >
+        <app-todo
+            *ngFor="let todo of todosService.todos"
+            [todo]="todo">
+    
+        </app-todo>
+        </div>
+        <ng-template #loading>
+            <p>List of todos is loadig...</p>
+        </ng-template>
+    </div>
+</div>
+
+<app-modal *ngIf="modalService.isVisibleAdd$ | async">
+    <app-add-todo></app-add-todo>
+</app-modal>
+
+
+

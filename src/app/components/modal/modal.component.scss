@@ -1,0 +1,22 @@
+.modal-backgound{
+    background: rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.modal-content {
+    width: 560px;
+    position: absolute;
+    top: 50%;
+    padding: 40px 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) ;
+
+    border:  1px solid #E1E1E1;
+    border-radius: 20px;
+    background-color: white;
+
+}

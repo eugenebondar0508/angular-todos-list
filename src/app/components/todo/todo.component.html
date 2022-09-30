@@ -1,0 +1,26 @@
+<div class="todo">
+    <div class="todo__content">
+        <label class="todo__content-checkbox">
+            <input [(ngModel)]="todo.completed" type="checkbox" (change)="toggle()">
+            <span class="geekmark"></span>
+        </label>
+        <p [ngClass]="{checked : todo.completed}" class="todo__content-title">{{todo.title}}</p>
+    </div>
+    <div class="todo__events">
+        <button type="button" (click)="openEditModal(todo)">
+            <img src="../../../assets/img/edit.svg" alt="edit">
+        </button>
+        <button type="button" (click)="openDeleteModal(todo)">
+            <img src="../../../assets/img/delete.svg" alt="delete">
+        </button>
+    </div>
+</div>
+
+<app-modal *ngIf="modalService.isVisibleEdit$ | async">
+    <app-edit-todo [todoById]="todoById"></app-edit-todo>
+</app-modal>
+<app-modal *ngIf="modalService.isVisibleDelete$ | async">
+    <app-delete-todo [todoById]="todoById"></app-delete-todo>
+</app-modal>
+
+

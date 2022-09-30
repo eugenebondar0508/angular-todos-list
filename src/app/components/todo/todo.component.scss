@@ -1,0 +1,90 @@
+.todo{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 25px;
+    border: 1px solid #E1E1E1;
+    border-radius: 16px;
+
+    margin-bottom: 30px;
+
+    &__content {
+        width: 80%;
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+
+        &-title {
+            color: #30313A;
+            font-size: 16px;
+            margin-left: 20px;
+        }
+        input[type="checkbox"] {
+            visibility: hidden;
+          }
+
+
+        .geekmark {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: transparent;
+            border: 1px solid #E1E1E1;
+            border-radius: 4px;
+        }
+        
+        .geekmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+            
+        }
+
+
+        &-checkbox input:checked ~ .geekmark {
+            background-color: #2CC88E;
+        }
+
+        &-checkbox input:checked ~ .geekmark:after {
+            display: block;
+        }
+
+        &-checkbox .geekmark:after {
+            left: 4px;
+            bottom: 5px;
+            width: 4px;
+            height: 8px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        &-checkbox input:checked + .todo__content-title {
+            text-decoration:line-through;
+          }
+
+    }
+
+    &__events {
+        display: flex;
+        column-gap: 30px;
+
+        button{
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+    }
+}
+
+.checked{
+    text-decoration: line-through;
+    color: #686974;
+}
+
+

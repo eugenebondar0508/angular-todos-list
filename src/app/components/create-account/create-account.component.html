@@ -1,0 +1,80 @@
+<div class="container">
+    <form class="create" [formGroup]="form" (ngSubmit)="submit()">
+        <h2 class="create__title">Create Account</h2>
+        <h3 class="create__subtitle">Let’s get productive toghether!</h3>
+        <div class="row">
+            <div class="col">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" formControlName="name" [ngClass]="{error: form.get('name').touched && form.get('name').invalid}">
+                <div class="create__error" *ngIf="form.get('name').touched && form.get('name').invalid">
+                    Enter full name longer two symbols.
+                </div>
+            </div>
+
+            <div class="col">
+                <label for="username">Username *</label>
+                <input type="text" id="username" formControlName="username">
+                <div class="create__error" *ngIf="form.get('username').touched && form.get('username').invalid">
+                    Enter username longer two symbols.
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="email">Email *</label>
+                <input type="email" id="email" formControlName="email">
+                <div class="create__error" *ngIf="form.get('email').touched && form.get('email').invalid">
+                    Enter email.
+                </div>
+            </div>
+
+            <div class="col">
+                <label for="phone">Phone number *</label>
+                <input type="text" id="phone" formControlName="phone">
+                <div class="create__error" *ngIf="form.get('phone').touched && form.get('phone').invalid">
+                    Enter correct phone number. Phone number should have ten symbols.
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col address">
+                <label for="street">Address line *</label>
+                <input type="text" id="street" formControlName="street">
+                <div class="create__error" *ngIf="form.get('street').touched && form.get('street').invalid">
+                    Enter street.
+                </div>
+            </div>
+
+            <div class="col suite">
+                <label for="suite">Suite</label>
+                <input type="text" id="suite" formControlName="suite">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="city">City *</label>
+                <input type="text" id="city" formControlName="city">
+                <div class="create__error" *ngIf="form.get('city').touched && form.get('city').invalid">
+                    Enter city.
+                </div>
+            </div>
+
+            <div class="col">
+                <label for="zipcode">ZIP Code *</label>
+                <input type="text" id="zipcode" formControlName="zipcode">
+                <div class="create__error" *ngIf="form.get('zipcode').touched && form.get('zipcode').invalid">
+                    Enter zipcode.
+                </div>
+            </div>
+        </div>
+
+        <button 
+            type="submit" 
+            [disabled]="form.invalid" 
+            [ngClass]="{disabled: form.invalid}"
+            >
+            <p></p> Crete Account <img src="../../../assets/img/Group.svg" alt="">
+        </button>
+    </form>
+</div>
